@@ -1,0 +1,22 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% extends "base1.html.twig" %}
+
+{% block fos_user_content %}
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="form-signin">
+
+        <div class="login-container">
+            <h1>Reset Your Password</h1><br>
+            <form>
+
+
+            <label for="username">{{ 'resetting.request.username'|trans }}</label>
+            <input type="text" id="username" name="username" required="required" />
+        </form>
+
+        <div>
+            <input type="submit" class="login login-submit" value="{{ 'resetting.request.submit'|trans }}" />
+        </div>
+        </div>
+    </form>
+{% endblock fos_user_content %}

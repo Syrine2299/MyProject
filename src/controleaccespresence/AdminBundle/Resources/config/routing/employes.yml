@@ -1,0 +1,28 @@
+employes:
+  path:     /
+  defaults: { _controller: "controleaccespresenceAdminBundle:Employe:index" }
+employes_show:
+  path:     /{id}/show
+  defaults: { _controller: "controleaccespresenceAdminBundle:Employe:show" }
+
+employes_new:
+  path:     /new
+  defaults: { _controller: "controleaccespresenceAdminBundle:Employe:new" }
+
+employes_create:
+  path:     /create
+  defaults: { _controller: "controleaccespresenceAdminBundle:Employe:create" }
+  methods:  POST
+
+employes_edit:
+  path:     /{id}/edit
+  defaults: { _controller: "controleaccespresenceAdminBundle:Employe:edit" }
+
+employes_update:
+  path:     /{id}/update
+  defaults: { _controller: "controleaccespresenceAdminBundle:Employe:update" }
+  methods:  [POST, PUT]
+
+employes_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "controleaccespresenceAdminBundle:Employe:delete" }

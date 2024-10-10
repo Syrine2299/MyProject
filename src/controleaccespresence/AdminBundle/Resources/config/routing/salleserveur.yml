@@ -1,0 +1,28 @@
+salleserveur:
+  path:     /
+  defaults: { _controller: "controleaccespresenceAdminBundle:SalleServeur:index" }
+salleserveur_show:
+  path:     /{id}/show
+  defaults: { _controller: "controleaccespresenceAdminBundle:SalleServeur:show" }
+
+salleserveur_new:
+  path:     /new
+  defaults: { _controller: "controleaccespresenceAdminBundle:SalleServeur:new" }
+
+salleserveur_create:
+  path:     /create
+  defaults: { _controller: "controleaccespresenceAdminBundle:SalleServeur:create" }
+  methods:  POST
+
+salleserveur_edit:
+  path:     /{id}/edit
+  defaults: { _controller: "controleaccespresenceAdminBundle:SalleServeur:edit" }
+
+salleserveur_update:
+  path:     /{id}/update
+  defaults: { _controller: "controleaccespresenceAdminBundle:SalleServeur:update" }
+  methods:  [POST, PUT]
+
+salleserveur_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "controleaccespresenceAdminBundle:SalleServeur:delete" }

@@ -1,0 +1,11 @@
+eventsflame:
+  path:     /
+  defaults: { _controller: "controleaccespresenceAdminBundle:EventsFlame:index" }
+
+eventsflame_show:
+  path:     /{id}/show
+  defaults: { _controller: "controleaccespresenceAdminBundle:EventsFlame:show" }
+
+eventsflame_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "controleaccespresenceAdminBundle:EventsFlame:delete" }

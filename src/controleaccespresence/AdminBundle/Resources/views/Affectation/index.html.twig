@@ -1,0 +1,101 @@
+
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('bundles/perfectcity/plugins/datatables/dataTables.bootstrap.css') }}">
+    <style>
+        .cols1
+        {
+
+            width: 50px;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body -%}
+<section class="admin">
+
+    <style>
+        .admin{
+            background-color: #0097AC;
+        }
+
+    </style>
+    <h1>Liste Des Plannifications</h1>
+
+    <div>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+        {% else %}
+            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <a class="btn btn-primary pull-right" href="{{ path('affectation_new') }}">
+                        <span class="glyphicon glyphicon-plus"></span>Ajouter une plannification
+                    </a>
+
+
+                </div><!-- /.box-header -->
+
+                <form class="box-body">
+                    {% for message in app.session.flashbag.get('info') %}
+                        <div class="alert alert-success">
+                            <strong>Success!</strong> {{ message }}.
+                        </div>
+                    {% endfor %}
+
+                    <table id="example1" class="table">
+                        <thead>
+                        <tr>
+                            <th>Employé </th>
+                            <th>Salle serveur</th>
+                            <th>Tâche</th>
+                            <th>Date entrée</th>
+                            <th> Date Sortie</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in entities %}
+                            <tr>
+                                <td>{{ entity.Employe.prenom }}  {{ entity.employe.nom }}</td>
+                                <td>{{ entity.salleServeur.nomSalleServeur }}</td>
+                                <td>{{ entity.tache }}</td>
+
+                                <td>{{ entity.dateEntree ? entity.dateEntree|date('Y-m-d H:i:s') : '' }}</td>
+                                <td>{{ entity.dateSortie ? entity.dateSortie|date('Y-m-d H:i:s') : '' }}</td>
+
+
+
+                                <td><a class="btn .btn-default pull-right" href="{{ path('affectation_delete', {'id': entity.id }) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cette affectation?')"><span class="glyphicon glyphicon-trash"></span></a>
+                                    <a class="btn .btn-default pull-right" href="{{ path('affectation_show', {'id': entity.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
+                                    <a class="btn .btn-default pull-right" href="{{ path('affectation_edit', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-pencil"></span></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    {% endblock %}
+                    {% block javascripts %}
+                        <script src="{{ asset('bundles/perfectcity/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+                        <script src="{{ asset('bundles/perfectcity/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+                        <!-- Optional JavaScript -->
+                        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+                    {% endblock %}
+
+
+
+
+

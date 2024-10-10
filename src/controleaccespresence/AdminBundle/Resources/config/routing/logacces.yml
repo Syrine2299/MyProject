@@ -1,0 +1,11 @@
+logacces:
+  path:     /
+  defaults: { _controller: "controleaccespresenceAdminBundle:LogAcces:index" }
+
+logacces_show:
+  path:     /{id}/show
+  defaults: { _controller: "controleaccespresenceAdminBundle:LogAcces:show" }
+
+logacces_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "controleaccespresenceAdminBundle:LogAcces:delete" }

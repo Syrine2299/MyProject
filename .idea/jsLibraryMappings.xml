@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{bootstrap, bootstrap-datepicker, dataTables.bootstrap4, dataTables.fixedHeader, datatables, demo_page, demo_table, demo_table_jui, fixedHeader.dataTables, fullcalendar, jquery, jquery-2.0.3, jquery-3.3.1, jquery-3.5.0, jquery-3.5.1, jquery-ui, jquery-ui-1.10.0.custom, jquery.dataTables, jquery.dataTables_themeroller, moment.js, twitter-bootstrap}" />
+  </component>
+</project>

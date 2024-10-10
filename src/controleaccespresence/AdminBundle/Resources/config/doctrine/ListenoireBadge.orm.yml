@@ -1,0 +1,30 @@
+controleaccespresence\AdminBundle\Entity\ListenoireBadge:
+    type: entity
+    table: listenoire_badge
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id
+            generator:
+                strategy: IDENTITY
+    fields:
+        numBadge:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Num_badge
+
+        etat:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Etat
+    lifecycleCallbacks: {  }

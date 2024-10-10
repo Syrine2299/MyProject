@@ -1,0 +1,11 @@
+loght:
+  path:     /
+  defaults: { _controller: "controleaccespresenceAdminBundle:LogHT:index" }
+
+loght_show:
+  path:     /{id}/show
+  defaults: { _controller: "controleaccespresenceAdminBundle:LogHT:show" }
+
+loght_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "controleaccespresenceAdminBundle:LogHT:delete" }

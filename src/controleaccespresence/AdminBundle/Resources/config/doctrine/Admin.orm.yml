@@ -1,0 +1,14 @@
+controleaccespresence\AdminBundle\Entity\Admin:
+    type: entity
+    table: admin
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id
+            generator:
+                strategy: IDENTITY
+    lifecycleCallbacks: {  }

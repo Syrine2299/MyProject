@@ -1,0 +1,19 @@
+
+event:
+  path:     /
+  defaults: { _controller: "controleaccespresenceAdminBundle:Calendar:index" }
+event_show:
+  path:     /{id}/show
+  defaults: { _controller: "controleaccespresenceAdminBundle:Calendar:show" }
+
+event_new:
+  path:     /new
+  defaults: { _controller: "controleaccespresenceAdminBundle:Calendar:new" }
+
+event_edit:
+  path:     /{id}/edit
+  defaults: { _controller: "controleaccespresenceAdminBundle:Calendar:edit" }
+
+event_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "controleaccespresenceAdminBundle:Calendar:delete" }

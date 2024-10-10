@@ -1,0 +1,64 @@
+controleaccespresence\AdminBundle\Entity\Employe:
+    type: entity
+    table: employe
+    indexes:
+        FK_badgeemploye:
+            columns:
+                - Num_badge
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Nom
+        prenom:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Prenom
+        profil:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Profil
+        mail:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Mail
+        numTelephone:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Num_telephone
+    manyToOne:
+        numBadge:
+            targetEntity: Badge
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Num_badge:
+                    referencedColumnName: Num_badge
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

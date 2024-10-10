@@ -1,0 +1,42 @@
+controleaccespresence\AdminBundle\Entity\EventsFlame:
+    type: entity
+    table: events_flame
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomSalleServeur:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Nom_salle_serveur
+        dateEvent:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+            column: Date_event
+        etatFlame:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Etat_flame
+        nomDevice:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Nom_device
+    lifecycleCallbacks: {  }

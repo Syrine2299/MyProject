@@ -1,0 +1,30 @@
+controleaccespresence\AdminBundle\Entity\Badge:
+    type: entity
+    table: badge
+    id:
+        numBadge:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            id: true
+            column: Num_badge
+            generator:
+                strategy: IDENTITY
+    fields:
+        typeBadge:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Type_badge
+        etatBadge:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Etat_badge
+    lifecycleCallbacks: {  }

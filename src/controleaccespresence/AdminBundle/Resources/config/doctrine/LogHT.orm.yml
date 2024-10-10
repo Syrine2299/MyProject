@@ -1,0 +1,55 @@
+controleaccespresence\AdminBundle\Entity\LogHT:
+    type: entity
+    table: log_h_t
+    indexes:
+        Salle_serveur:
+            columns:
+                - Salle_serveur
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id
+            generator:
+                strategy: IDENTITY
+    fields:
+        temperature:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Temperature
+        humidite:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Humidite
+        dateHt:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+            column: Date_HT
+        nomDevice:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Nom_device
+    manyToOne:
+        salleServeur:
+            targetEntity: SalleServeur
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Salle_serveur:
+                    referencedColumnName: Id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

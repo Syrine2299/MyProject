@@ -1,0 +1,164 @@
+{% extends '::base2.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/perfectcity/plugins/datatables/dataTables.bootstrap.css') }}">
+    <style>
+        .cols1
+        {
+
+            width: 50px;
+        }
+    </style>
+{% endblock %}
+{% block body -%}
+    <section class="admin">
+        <style>
+            .admin{
+                background-color: #0097AC;
+            }
+
+        </style>
+        <h1>
+            Tableau de bord Administrateur
+        </h1>
+        <div>
+
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}
+
+        </div>
+
+
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-gray-active">
+                    <div class="inner">
+
+                        <a href="{{ path('employes') }}">
+                            <i class="glyphicon glyphicon-transfer"></i>
+                            <span>Gestion des employés</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div><!-- ./col -->
+
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-gray-active">
+                    <div class="inner">
+                        <a href="{{ path('salleserveur') }}">
+                            <i class="glyphicon glyphicon-transfer"></i>
+                            <span>Supervision des salles serveurs</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div><!-- ./col -->
+
+
+
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-gray-active">
+                    <div class="inner">
+                        <a href="{{ path('listenoirebadge') }}">
+                            <i class="glyphicon glyphicon-transfer"></i>
+                            <span>Consulter les badges en liste noire</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div><!-- ./col -->
+
+
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-gray-active">
+                    <div class="inner">
+                        <a href="{{ path('logacces') }}">
+                            <i class="glyphicon glyphicon-transfer"></i>
+                            <span>Historique des log acces</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div><!-- ./col -->
+
+
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-gray-active">
+                    <div class="inner">
+                        <a href="{{ path('loght') }}">
+                            <i class="glyphicon glyphicon-transfer"></i>
+                            <span>Historique des log H_T</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div><!-- ./col -->
+
+
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-gray-active">
+                    <div class="inner">
+                        <a href="{{ path('eventsflame') }}">
+                            <i class="glyphicon glyphicon-transfer"></i>
+                            <span>Historique des events flame</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div><!-- ./col -->
+
+
+
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-gray-active">
+                    <div class="inner">
+                        <a href="{{ path('affectation') }}">
+                            <i class="glyphicon glyphicon-transfer"></i>
+                            <span>Plannifier un accès aux salles serveurs</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div><!-- ./col -->
+
+
+
+
+        </div>
+
+
+    </section><!-- /.content -->
+
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('bundles/perfectcity/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('bundles/perfectcity/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+    <script>
+        $(function () {
+            $("#example1").DataTable();
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": true
+            });
+        });
+    </script>
+
+{% endblock %}
+

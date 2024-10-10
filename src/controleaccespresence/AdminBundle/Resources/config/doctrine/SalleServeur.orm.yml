@@ -1,0 +1,45 @@
+controleaccespresence\AdminBundle\Entity\SalleServeur:
+    type: entity
+    table: salle_serveur
+    uniqueConstraints:
+        Nom_salle_serveur:
+            columns:
+                - Nom_salle_serveur
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomSite:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Nom_site
+        numEtage:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: Num_etage
+        nomSalleServeur:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Nom_salle_serveur
+        htRead:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: HT_READ
+    lifecycleCallbacks: {  }

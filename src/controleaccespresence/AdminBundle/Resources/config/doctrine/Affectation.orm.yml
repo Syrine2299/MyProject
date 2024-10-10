@@ -1,0 +1,79 @@
+controleaccespresence\AdminBundle\Entity\Affectation:
+    type: entity
+    table: affectation
+    indexes:
+        Salle_serveur:
+            columns:
+                - Salle_serveur
+        Employe:
+            columns:
+                - Employe
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateEntree:
+            type: datetime
+            nullable: false
+            column: Date_entree
+        dateSortie:
+            type: datetime
+            nullable: false
+            column: Date_sortie
+        backgroundColor:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: background_color
+        borderColor:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: border_color
+        textColor:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: text_color
+        tache:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Tache
+    manyToOne:
+        employe:
+            targetEntity: Employe
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Employe:
+                    referencedColumnName: Id
+            orphanRemoval: false
+        salleServeur:
+            targetEntity: SalleServeur
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Salle_serveur:
+                    referencedColumnName: Id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

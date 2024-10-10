@@ -1,0 +1,53 @@
+controleaccespresence\AdminBundle\Entity\Calendar:
+    type: entity
+    table: calendar
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        start:
+            type: datetime
+            nullable: false
+        end:
+            type: datetime
+            nullable: false
+        backgroundColor:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: background_color
+        borderColor:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: border_color
+        textColor:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: text_color
+    lifecycleCallbacks: {  }

@@ -1,0 +1,62 @@
+controleaccespresence\AdminBundle\Entity\LogAcces:
+    type: entity
+    table: log_acces
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateEntree:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+            column: Date_entree
+        dateSortie:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+            column: Date_sortie
+        etatAcces:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Etat_acces
+        numBadge:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Num_badge
+        numDevice:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Num_device
+        nomEmploye:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Nom_employe
+        nomSalleServeur:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Nom_salle_serveur
+    lifecycleCallbacks: {  }

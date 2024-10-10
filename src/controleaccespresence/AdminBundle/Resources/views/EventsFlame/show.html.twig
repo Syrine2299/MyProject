@@ -1,0 +1,98 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    <style>
+        .cols1
+        {
+
+            width: 50px;
+        }
+    </style>
+{% endblock %}
+{% block body -%}
+<section class="admin">
+
+    <style>
+        .admin{
+            background-color: #0097AC;
+        }
+
+    </style>
+    <h1>Informations D'Un Events Flame</h1>
+
+    <div>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+        {% else %}
+            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+
+                    <div class="modal fade" id="infos">
+                            <div class="modal-dialog">
+                                    <div class="modal-content">
+                                            <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">x</button>
+                                                    <h4 class="modal-title">Confirmation</h4>
+                                                </div>
+                                            <div class="modal-body">
+                                                    Etes-vous sur de vouloir supprimer !
+                                                </div>
+                                            <div class="modal-footer">
+                                                    {{ form(delete_form) }}
+                                                    <button class="btn btn-info" data-dismiss="modal">NON</button>
+                                                </div>
+                                        </div>
+                                </div>
+                    </div>
+
+                    <!-- <a data-toggle="modal" href="#infos" class="btn btn-danger pull-right">
+                                        Supprimer
+                                    </a> -->
+                    <a class="btn btn-secondary pull-right" href="{{ path('eventsflame') }}">Retour à la liste</a>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    {% for message in app.session.flashbag.get('info') %}
+                        <div class="alert alert-success">
+                            <strong>Success!</strong> {{ message }}.
+                        </div>
+                    {% endfor %}
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table id="example1" class="table">
+                                <tbody>
+
+                                <tr>
+                                    <th>Etat flame</th>
+                                    <td>{{ entity.etatFlame }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Nom Device</th>
+                                    <td>{{ entity.nomDevice}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Date Event </th>
+                                    <td>{{ entity.dateEvent|date('Y-m-d H:i:s') }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Nom Salle Serveur </th>
+                                    <td>{{ entity.nomSalleServeur }}</td>
+                                </tr>
+
+
+
+                                </tbody>
+                            </table>
+                            {% endblock %}
+

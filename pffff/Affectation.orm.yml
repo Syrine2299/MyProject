@@ -1,0 +1,57 @@
+controleaccespresence\AdminBundle\Entity\Affectation:
+    type: entity
+    table: affectation
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: Id
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateEntree:
+            type: datetime
+            nullable: false
+            column: Date_entree
+        dateSortie:
+            type: datetime
+            nullable: false
+            column: Date_sortie
+        employe:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        backgroundColor:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: background_color
+        borderColor:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: border_color
+        textColor:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: text_color
+        salleServeur:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: salle_serveur
+    lifecycleCallbacks: {  }

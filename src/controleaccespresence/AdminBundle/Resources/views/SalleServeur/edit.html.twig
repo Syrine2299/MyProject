@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+{% block body -%}
+    <section class="admin">
+
+        <style>
+            .admin{
+                background-color: #0097AC;
+            }
+
+        </style>
+        <h1>Modifier Salle Serveur</h1>
+
+        <div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+    <div class="row">
+    <!-- left column -->
+    <div class="col-md-12">
+    <div class="box">
+    <div class="box-header">
+    </div><!-- /.box-header -->
+    <div class="box-body">
+    {% for message in app.session.flashbag.get('info') %}
+        <div class="alert alert-success">
+            <strong>Success!</strong> {{ message }}.
+        </div>
+    {% endfor %}
+    <div class="row">
+    <div class="col-lg-12">
+    {{ form_start(edit_form) }}
+    <div class="form-group">
+        {{ form_row(edit_form.nomSalleServeur, {'attr': {'class': 'form-control'}}) }}
+        {{ form_row(edit_form.nomSite, {'attr': {'class': 'form-control'}}) }}
+        {{ form_row(edit_form.numEtage, {'attr': {'class': 'form-control'}}) }}
+        {{ form_row(edit_form.htRead, {'attr': {'class': 'form-control'}}) }}
+
+
+
+    </div>
+    {{ form_end(edit_form) }}
+
+<a  class="btn btn-info pull-right" href="{{ path('salleserveur') }}">Retour à la liste </a>
+{% endblock %}

@@ -1,0 +1,35 @@
+affectation:
+  path:     /
+  defaults: { _controller: "controleaccespresenceAdminBundle:Affectation:index" }
+affectation_show:
+  path:     /{id}/show
+  defaults: { _controller: "controleaccespresenceAdminBundle:Affectation:show" }
+
+affectation_new:
+  path:     /new
+  defaults: { _controller: "controleaccespresenceAdminBundle:Affectation:new" }
+
+affectation_create:
+  path:     /create
+  defaults: { _controller: "controleaccespresenceAdminBundle:Affectation:create" }
+  methods:  POST
+
+affectation_edit:
+  path:     /{id}/edit
+  defaults: { _controller: "controleaccespresenceAdminBundle:Affectation:edit" }
+
+affectation_update:
+  path:     /{id}/update
+  defaults: { _controller: "controleaccespresenceAdminBundle:Affectation:update" }
+  methods:  [POST, PUT]
+
+affectation_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "controleaccespresenceAdminBundle:Affectation:delete" }
+
+affectation_rechercheByTache:
+  path:     /rechercheByTache
+  defaults: { _controller: "controleaccespresenceAdminBundle:Affectation:rechercheByTache" }
+
+
+

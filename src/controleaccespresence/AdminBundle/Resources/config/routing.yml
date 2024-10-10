@@ -1,0 +1,35 @@
+
+Admin_admin:
+    resource: "@controleaccespresenceAdminBundle/Resources/config/routing/admin.yml"
+    prefix:   /dashboard
+Admin_employes:
+    resource: "@controleaccespresenceAdminBundle/Resources/config/routing/employes.yml"
+    prefix:   /employes
+Admin_listenoirebadge:
+    resource: "@controleaccespresenceAdminBundle/Resources/config/routing/listenoirebadge.yml"
+    prefix:   /listenoirebadge
+Admin_logacces:
+    resource: "@controleaccespresenceAdminBundle/Resources/config/routing/logacces.yml"
+    prefix:   /logacces
+Admin_loght:
+    resource: "@controleaccespresenceAdminBundle/Resources/config/routing/loght.yml"
+    prefix:   /loght
+Admin_eventsflame:
+    resource: "@controleaccespresenceAdminBundle/Resources/config/routing/eventsflame.yml"
+    prefix:   /eventsflame
+
+Admin_salleserveur:
+    resource: "@controleaccespresenceAdminBundle/Resources/config/routing/salleserveur.yml"
+    prefix:   /salleserveur
+Admin_user:
+    resource: "@controleaccespresenceAdminBundle/Resources/config/routing/user.yml"
+    prefix:   /dashboarduser
+
+Admin_event:
+    resource: "@controleaccespresenceAdminBundle/Resources/config/routing/affectation.yml"
+    prefix:   /affectation
+Admin_main:
+    resource: "@controleaccespresenceAdminBundle/Resources/config/routing/main.yml"
+    prefix:   /main
+
+

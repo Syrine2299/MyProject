@@ -1,0 +1,104 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/perfectcity/plugins/datatables/dataTables.bootstrap.css') }}">
+    <style>
+        .cols1
+        {
+
+            width: 50px;
+        }
+    </style>
+{% endblock %}
+{% block body -%}
+<section class="admin">
+
+    <style>
+        .admin{
+            background-color: #0097AC;
+        }
+
+    </style>
+    <h1>Historique Des Logs d'Accès</h1>
+
+    <div>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+        {% else %}
+            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    {% for message in app.session.flashbag.get('info') %}
+                        <div class="alert alert-success">
+                            <strong>Success!</strong> {{ message }}.
+                        </div>
+                    {% endfor %}
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <table id="example1" class="table">
+                                <thead>
+                                <tr>
+                                    <th>Date entree</th>
+                                    <th>Date sortie</th>
+                                    <th>Etat acces</th>
+                                    <th>Num badge</th>
+                                    <th>Num device</th>
+                                    <th>Nom employé</th>
+                                    <th>Nom Salle Serveur</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for entity in entities %}
+                                    <tr>
+                                        <td>{{ entity.dateEntree|date('Y-m-d H:i:s') }}</td>
+                                        <td>{{ entity.dateSortie|date('Y-m-d H:i:s') }}</td>
+                                        <td>{{ entity.etatAcces }}</td>
+                                        <td>{{ entity.numBadge }}</td>
+                                        <td>{{ entity.numDevice }}</td>
+                                        <td>{{ entity.nomEmploye }}</td>
+                                        <td>{{ entity.nomSalleServeur }}</td>
+
+                                        <td><a class="btn .btn-default pull-right" href="{{ path('logacces_delete', {'id': entity.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+                                            <a class="btn .btn-default pull-right" href="{{ path('logacces_show', {'id': entity.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                            {% endblock %}
+                            {% block javascripts %}
+                                <script src="{{ asset('bundles/perfectcity/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+                                <script src="{{ asset('bundles/perfectcity/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+                                <script>
+                                    $(function () {
+                                        $("#example1").DataTable();
+                                        $('#example2').DataTable({
+                                            "paging": true,
+                                            "lengthChange": false,
+                                            "searching": false,
+                                            "ordering": true,
+                                            "info": true,
+                                            "autoWidth": false
+                                        });
+                                    });
+                                </script>
+
+                            {% endblock %}
+
+
+
+

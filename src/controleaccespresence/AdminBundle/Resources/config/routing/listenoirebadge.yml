@@ -1,0 +1,11 @@
+listenoirebadge:
+  path:     /
+  defaults: { _controller: "controleaccespresenceAdminBundle:ListenoireBadge:index" }
+
+listenoirebadge_show:
+  path:     /{id}/show
+  defaults: { _controller: "controleaccespresenceAdminBundle:ListenoireBadge:show" }
+
+listenoirebadge_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "controleaccespresenceAdminBundle:ListenoireBadge:delete" }
